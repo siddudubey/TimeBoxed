@@ -1,0 +1,31 @@
+<!-- price_stats.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Price Stats</title>
+  </head>
+  <body>
+    <h1>Price Stats</h1>
+    <form method="post" action="{{ url_for('price_stats') }}">
+      <label for="instrument">Instrument:</label>
+      <input type="text" name="instrument" id="instrument" required><br><br>
+      <label for="start_time">Start Time:</label>
+      <input type="datetime-local" name="start_time" id="start_time" required><br><br>
+      <label for="end_time">End Time:</label>
+      <input type="datetime-local" name="end_time" id="end_time" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    {% if stats %}
+    <h2>Price Stats for {{ instrument }} between {{ start_time }} and {{ end_time }}:</h2>
+    <ul>
+      <li>Highest price: {{ stats['high'] }}</li>
+      <li>Lowest price: {{ stats['low'] }}</li>
+      <li>Average price: {{ stats['avg'] }}</li>
+    </ul>
+    {% endif %}
+
+  </body>
+</html>
+
