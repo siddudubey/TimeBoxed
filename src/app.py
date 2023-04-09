@@ -1,7 +1,7 @@
 from flask import Flask, redirect, request, render_template
 import kiteconnect
 import os
-from instrument_data import calculate_stats
+from instrument_data import calculate_stats, nifty_nearest_atm_otions
 
 app = Flask(__name__, template_folder='templates')
 
@@ -36,7 +36,7 @@ def redirect_handler():
                 # store the access token in session
                 kite.set_access_token(session_response["access_token"])
                 print("access token set. " + session_response["access_token"])
-                return redirect("/price_stats")
+                return redirect("/nearest")
             except Exception as e:
                 return "Error generating access token: " + str(e)
         else:
@@ -53,9 +53,25 @@ def price_stats():
 
         # calculate the stats using the instrument_data module
         stats = calculate_stats(kite, instrument, start_time, end_time)
-        return render_template('price_stats.html', stats=stats, instrument=instrument, start_time=start_time, end_time=end_time)
+        return render_template('price_stats.html',
+                                stats=stats,
+                                instrument=instrument,
+                                start_time=start_time,
+                                end_time=end_time)
     else:
         return render_template('price_stats.html')
+
+@app.route('/nearest', methods=['GET', 'POST'])
+def nearest_options():
+    if request.method == 'GET':
+        [nifty_index_level, atm_call_option, atm_put_option] = nifty_nearest_atm_otions(kite)
+        return render_template('nearest_instruments.html',
+                                nifty_level=nifty_index_level,
+                                call_option=atm_call_option,
+                                put_option=atm_put_option)
+    else:
+        return "Nothing to be done!"
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,32 @@
+<!-- nearest_instruments.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nearest Options to NIFTY Spot</title>
+  </head>
+  <body>
+    {% if nifty_level %}
+    <h1>Current NIFTY level = {{nifty_level}}</h1>
+    {% endif %}
+
+    {% if call_option %}
+    <h2>Nearest Call Option:</h2>
+    <ul>
+      <li>Trading Symbol: {{ call_option['tradingsymbol'] }}</li>
+      <li>Instrument Token: {{ call_option['instrument_token'] }}</li>
+      <li>Average price: {{ call_option['last_price'] }}</li>
+    </ul>
+    {% endif %}
+
+    {% if put_option %}
+    <h2>Nearest PUT Option:</h2>
+    <ul>
+      <li>Trading Symbol: {{ put_option['tradingsymbol'] }}</li>
+      <li>Instrument Token: {{ put_option['instrument_token'] }}</li>
+      <li>Average price: {{ put_option['last_price'] }}</li>
+    </ul>
+    {% endif %}
+
+  </body>
+</html>
