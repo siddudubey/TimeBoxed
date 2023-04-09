@@ -1,9 +1,12 @@
 from flask import Flask, redirect, request, render_template
+from flask_sslify import SSLify
 import kiteconnect
 import os
 from instrument_data import calculate_stats, nifty_nearest_atm_otions
 
 app = Flask(__name__, template_folder='templates')
+
+sslify = SSLify(app)
 
 api_key = os.environ.get('KITE_API_KEY')
 kite = kiteconnect.KiteConnect(api_key)
@@ -74,4 +77,5 @@ def nearest_options():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=443, ssl_context=('server.crt', 'server.key'))
+
