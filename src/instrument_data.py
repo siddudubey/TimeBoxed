@@ -31,7 +31,7 @@ def calculate_stats(kite, instrument, start_time, end_time):
 def nifty_nearest_atm_otions(kite):
     # Get quote for NIFTY 50 index
     nifty_index_level = kite.quote("NSE:NIFTY 50")["NSE:NIFTY 50"]["last_price"]
-    print("Current NIFTY level: {nifty_index_level}")
+    # print(f"Current NIFTY level: {nifty_index_level}")
 
     # Example NIFTY CE/PE: symbol=NIFTY2341317600CE is for NIFTY 13 April 2023 17600 CE
 

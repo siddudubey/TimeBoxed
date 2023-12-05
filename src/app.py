@@ -13,7 +13,7 @@ kite = kiteconnect.KiteConnect(api_key)
 
 @app.route('/')
 def index():
-    return 'Hello, World!'
+    return 'Under Construction.'
 
 @app.route('/zlogin')
 def zlogin():
@@ -38,7 +38,7 @@ def redirect_handler():
                 session_response = kite.generate_session(res_params["request_token"], api_secret=api_secret)
                 # store the access token in session
                 kite.set_access_token(session_response["access_token"])
-                print("access token set. " + session_response["access_token"])
+                print("access token set. ") # + session_response["access_token"])
                 return redirect("/nearest")
             except Exception as e:
                 return "Error generating access token: " + str(e)
