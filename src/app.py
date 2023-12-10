@@ -22,7 +22,19 @@ def download_resume():
 
 @app.route('/sirius')
 def sirius():
-    return render_template('sirius.html', title='Project Sirius')
+    # return render_template('sirius.html', title='Project Sirius')
+    classes = [
+        {"title": "Time and space complexity, Part 1", "description": "Theoretical background of time and space complexity in analysis of algorithms.", "link": "https://tldv.io/app/meetings/64ecc5024bfc27001357bf2c"},
+        {"title": "Time and space complexity, Part 2", "description": "Theoretical background of time and space complexity in analysis of algorithms.", "link": "https://tldv.io/app/meetings/64ee16c54ce21000122d24ec"},
+        {"title": "Binary Search, Part 1", "description": "We explore the binary search technique in this class.", "link": "https://youtu.be/1ELX88hH--8"},
+        {"title": "Binary Search, Part 2", "description": "Continued binary search class after part 1", "link": "https://youtu.be/MAMEctg-Zss"},
+        {"title": "Binary Search, Part 3", "description": "Solving problems using binary search technique.", "link": "https://tldv.io/app/meetings/64f60138ef183d001390f2bb"},
+        {"title": "Backtracking", "description": "Exploration of backtracking concept and solving a problem with a large number of options.", "link": "https://tldv.io/app/meetings/650876cbe2cf6900135828c7"},
+        {"title": "Two Pointers, Part 2", "description": "We discuss variety of problems solvable using two pointer technique.", "link": "https://tldv.io/app/meetings/653655293993ed0012ead7b7"},
+        
+        # Add more classes as needed
+    ]
+    return render_template('sirius.html', classes=classes, title='Project Sirius')
 
 @app.route('/contact')
 def contact():
