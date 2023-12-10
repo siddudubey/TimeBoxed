@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block customcss %}
-<link rel="stylesheet" href="{{ url_for('static', filename='v0-1.css') }}">
-{% endblock %}
-
 {% block header %}
 <div class="header-content">
 <nav>
@@ -19,8 +15,45 @@
 {% endblock %}
 
 {% block content %}
-<section class="contact-info">
-    <div class="mt-10 grid grid-cols-2 gap-4 lg:gap-10" data-id="22">
+
+<section class="contact-page">
+  <div class="container">
+    <div class="contact-card">
+      <!-- Email Card -->
+      <div class="icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
+          <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"></path>
+          <polyline points="15,9 18,9 18,11"></polyline>
+          <path d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2v0"></path>
+          <line x1="6" x2="7" y1="10" y2="10"></line>
+        </svg>
+      </div>
+      <div class="imp-container">
+        <span class="text-vd">&#x73;&#x69;&#x64;&#x64;&#x75;&#x64;&#x75;&#x62;&#x65;&#x79;&#x5B;&#x61;&#x74;&#x5D;&#x67;&#x6D;&#x61;&#x69;&#x6C;&#x2E;&#x63;&#x6F;&#x6D;</span><br>
+        <span class="text-vd">&#x64;&#x75;&#x62;&#x65;&#x79;&#x2E;&#x76;&#x5B;&#x61;&#x74;&#x5D;&#x6F;&#x75;&#x74;&#x6C;&#x6F;&#x6F;&#x6B;&#x2E;&#x63;&#x6F;&#x6D;</span>
+      </div>
+    </div>
+
+    <a href="https://www.linkedin.com/in/siddudube" rel="nofollow" target="_blank">
+      <div class="contact-card">
+      <!-- LinkedIn Card -->
+      <div class="icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect width="4" height="12" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </div>
+      <div class="info-container">
+        <!--<p>LinkedIn</p>-->
+        <span class="text-lg font-semibold" data-id="26">LinkedIn</span>
+      </div>
+      </div>
+    </a>
+  </div>
+
+  <!--
+  <div class="mt-10 grid grid-cols-2 gap-4 lg:gap-10" data-id="22">
       <a class="group" data-id="23" href="https://www.linkedin.com/in/siddudube" rel="nofollow" target="_blank">
          <div class="flex flex-col items-center justify-center p-4 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800" data-id="24">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 mb-2" data-id="25">
@@ -44,5 +77,6 @@
         <span class="text-sm dark:text-gray-300">&#x64;&#x75;&#x62;&#x65;&#x79;&#x2E;&#x76;&#x5B;&#x61;&#x74;&#x5D;&#x6F;&#x75;&#x74;&#x6C;&#x6F;&#x6F;&#x6B;&#x2E;&#x63;&#x6F;&#x6D;</span>
       </div>
    </div>
-</section>
+  -->
+  </section>
 {% endblock %}

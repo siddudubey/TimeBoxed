@@ -1,39 +1,37 @@
 /* Base Styles */
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     color: rgb(0 0 0 / 75%);
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    /*background-color: #f7f7f7;
-    background-image: 
-      linear-gradient(45deg, #ccc 25%, transparent 25%),
-      linear-gradient(-45deg, #ccc 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #ccc 75%),
-      linear-gradient(-45deg, transparent 75%, #ccc 75%);
-    background-size: 50px 50px;
-    background-position: 0 0, 0 25px, 25px -25px, -25px 0px;*/
-}
-
-/**
-.full-screen {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+    height: 100%;
     display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    justify-content: center;
-    background: url('images/default-bg.png') center/cover no-repeat;
+    flex-direction: column;
 }
-*/
 
+/* fonts and text */
 .sh-text {
     text-shadow: 0px 0px 20px rgb(252, 252, 239);
 }
 
-/* Header Styles */
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-vd {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+/* header */
 header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -79,7 +77,8 @@ nav ul li a:hover {
 
 .main-content {
     padding-top: 60px;
-    height: 94vh;
+    flex: 1;  /* Grow to take available space */
+    overflow-y: auto; /* Add scroll to main content if needed */
 }
 
 .section {
@@ -94,9 +93,63 @@ footer {
     color: #000;
     text-align: center;
     padding: 1em 0;
-    position: relative;
-    bottom: 0;
     width: 100%;
+}
+
+.contact-page .container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Wrap cards to next line on smaller screens */
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Distribute space between items */
+    width: 220px; /* Fixed width for consistency */
+    height: 120px; /* Fixed height to ensure all cards are equal */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.icon-container {
+    text-align: center;
+    /* Adjust padding and margins as necessary */
+}
+
+.info-container {
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.imp-container {
+    text-decoration: none;
+    letter-spacing: 0.5px; /* Increase spacing for readability */
+    padding: 5px; /* Add padding for better visibility */
+    display: inline-block; /* Adjust layout for multiple emails */
+}
+
+.homepage-option {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    /* Other styling for your options */
+}
+
+.homepage-option:hover {
+    transform: translateY(-5px); /* Slightly raise the element */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
+    border-radius: 20px;
 }
 
 /* Responsive Design */
